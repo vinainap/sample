@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Get Loan Offers
+  description: |-
+    This is a sample API specification for get loan offers
+  version: 1.0.0
+
+paths:
+  /getLoanOffers:
+    post:
+      summary: Check customer eligibility and get loan offers
+      description: Check customer eligibility and get loan offers
+      requestBody:
+        description: Check customer eligibility and get loan offers
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoanOffersRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanOffersResponse'          
+        '405':
+          description: Invalid input
+
+
+components:
+  schemas:
+    LoanOffersRequest:
+      required:
+        - merchantId
+        - merchantRef
+        - transactionAmount
+        - transactionCurrency
+        - firstName
+        - lastName
+        - address
+        - mobileNumber
+        - idType
+        - idNum
+      type: object
+      properties:
+        merchantId:
+          type: string
+          example: AXTYR456789
+        merchantRef:
+          type: string
+          example: ZYXGHJ74590TYU
+        transactionCurrency:
+          type: number
+          format: double
+        currency:
+          type: string
+          enum:
+            - GBP
+            - EUR
+            - USD          
+        firstName:
+          type: string
+          example: Sathish
+        middleName:
+          type: string
+          example: A
+        lastName:
+          type: string
+          example: Prabhakaran
+        address:
+          required:
+            - houseNum
+            - street
+            - town
+            - postCode
+          type: object
+          properties:
+            houseNum:
+              type: string
+              example: flat-99
+            propertyName:
+              type: string
+              example: abcdef
+            street:
+              type: string
+              example: high street
+            town:
+              type: string
+              example: sutton
+            postCode:
+              type: string
+              example: SM11LZ
+        mobileNumber:
+          type: integer
+          format: int32
+          example: 07777777777
+        idType:
+          type: string
+          enum:
+            - passport
+            - drivinglicence
+            - biometricresidencepermit
+        idNum:
+          type: string
+          example: A1234567
+          
+    LoanOffersResponse:
+      required:
+        - merchantRef
+        - bankRef
+        - customerEligibility
+      type: object
+      properties:
+        merchantRef:
+          type: string
+          example: ZYXGHJ74590TYU
+        bankRef:
+          type: string
+          example: PODFZABC45XERTY
+        customerEligibility:
+          type: string
+          enum:
+            - eligible
+            - notEligible
+        loanOffers:
+          type: array
+          items:
+              $ref: '#/components/schemas/LoanOffers' 
+
+    LoanOffers:
+      required:
+        - offerId
+        - loanTenure
+        - instalmentAmount
+        - currency
+      properties:
+        offerId:
+          type: string
+        loanTensure:
+          type: integer
+          format: int32
+        instalmentAmount:
+          type: number
+          format: double
+        currency:
+          type: string
+          enum:
+            - GBP
+            - EUR
+            - USD
