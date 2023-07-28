@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: Customer Onboarding 
+  description: |-
+    This is a sample API specification for customer onboarding
+  version: 1.0.0
+
+paths:
+  /onboardELCustomer:
+    post:
+      summary: Onboard customer for the selected loan offer
+      description: Onboard customer for the selected loan offer
+      requestBody:
+        description: Onboard customer with the selected loan offer
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OnBoardRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnBoardResponse'          
+        '405':
+          description: Invalid input
+
+
+components:
+  schemas:
+    OnBoardRequest:
+      required:
+        - merchantId
+        - merchantRef
+        - bankRef
+        - offerId
+        - firstName
+        - lastName
+        - address
+        - dateOfBirth
+        - mobileNumber
+        - idType
+        - idNum
+      type: object
+      properties:
+        merchantId:
+          type: string
+          example: AXTYR456789
+        merchantRef:
+          type: string
+          example: ZYXGHJ74590TYU
+        offerId:
+          type: string
+        firstName:
+          type: string
+          example: Sathish
+        middleName:
+          type: string
+          example: A
+        lastName:
+          type: string
+          example: Prabhakaran
+        address:
+          required:
+            - houseNum
+            - street
+            - town
+            - postCode
+          type: object
+          properties:
+            houseNum:
+              type: string
+              example: flat-99
+            propertyName:
+              type: string
+              example: abcdef
+            street:
+              type: string
+              example: high street
+            town:
+              type: string
+              example: sutton
+            postCode:
+              type: string
+              example: SM11LZ
+        dateOfBirth:
+          type: string
+          format: date
+        emailId:
+          type: string
+          format: email
+        mobileNumber:
+          type: integer
+          format: int32
+          example: 07777777777
+        idType:
+          type: string
+          enum:
+            - passport
+            - drivinglicence
+            - biometricresidencepermit
+        idNum:
+          type: string
+          example: A1234567
+          
+    OnBoardResponse:
+      required:
+        - merchantRef
+        - bankRef
+        - customerRef
+        - customerEligibility
+      type: object
+      properties:
+        merchantRef:
+          type: string
+          example: ZYXGHJ74590TYU
+        bankRef:
+          type: string
+          example: PODFZABC45XERTY
+        customerRef:
+          type: string
+          description: Customer Loan Reference
+          example: 5035127562398        
+
+
+
