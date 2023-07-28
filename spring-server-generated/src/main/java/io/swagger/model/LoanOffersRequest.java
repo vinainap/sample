@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.model.LoanOffersRequestAddress;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.LocalDate;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,7 +15,7 @@ import javax.validation.constraints.*;
  * LoanOffersRequest
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T12:14:55.430793391Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T13:35:21.080469257Z[GMT]")
 
 
 public class LoanOffersRequest   {
@@ -73,6 +74,12 @@ public class LoanOffersRequest   {
 
   @JsonProperty("address")
   private LoanOffersRequestAddress address = null;
+
+  @JsonProperty("dateOfBirth")
+  private LocalDate dateOfBirth = null;
+
+  @JsonProperty("emailId")
+  private String emailId = null;
 
   @JsonProperty("mobileNumber")
   private Integer mobileNumber = null;
@@ -274,6 +281,46 @@ public class LoanOffersRequest   {
     this.address = address;
   }
 
+  public LoanOffersRequest dateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
+  /**
+   * Get dateOfBirth
+   * @return dateOfBirth
+   **/
+  @Schema(required = true, description = "")
+      @NotNull
+
+    @Valid
+    public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public LoanOffersRequest emailId(String emailId) {
+    this.emailId = emailId;
+    return this;
+  }
+
+  /**
+   * Get emailId
+   * @return emailId
+   **/
+  @Schema(description = "")
+  
+    public String getEmailId() {
+    return emailId;
+  }
+
+  public void setEmailId(String emailId) {
+    this.emailId = emailId;
+  }
+
   public LoanOffersRequest mobileNumber(Integer mobileNumber) {
     this.mobileNumber = mobileNumber;
     return this;
@@ -352,6 +399,8 @@ public class LoanOffersRequest   {
         Objects.equals(this.middleName, loanOffersRequest.middleName) &&
         Objects.equals(this.lastName, loanOffersRequest.lastName) &&
         Objects.equals(this.address, loanOffersRequest.address) &&
+        Objects.equals(this.dateOfBirth, loanOffersRequest.dateOfBirth) &&
+        Objects.equals(this.emailId, loanOffersRequest.emailId) &&
         Objects.equals(this.mobileNumber, loanOffersRequest.mobileNumber) &&
         Objects.equals(this.idType, loanOffersRequest.idType) &&
         Objects.equals(this.idNum, loanOffersRequest.idNum);
@@ -359,7 +408,7 @@ public class LoanOffersRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, merchantRef, transactionCurrency, currency, firstName, middleName, lastName, address, mobileNumber, idType, idNum);
+    return Objects.hash(merchantId, merchantRef, transactionCurrency, currency, firstName, middleName, lastName, address, dateOfBirth, emailId, mobileNumber, idType, idNum);
   }
 
   @Override
@@ -375,6 +424,8 @@ public class LoanOffersRequest   {
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+    sb.append("    emailId: ").append(toIndentedString(emailId)).append("\n");
     sb.append("    mobileNumber: ").append(toIndentedString(mobileNumber)).append("\n");
     sb.append("    idType: ").append(toIndentedString(idType)).append("\n");
     sb.append("    idNum: ").append(toIndentedString(idNum)).append("\n");

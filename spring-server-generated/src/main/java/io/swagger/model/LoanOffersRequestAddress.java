@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
  * LoanOffersRequestAddress
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T12:14:55.430793391Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T13:35:21.080469257Z[GMT]")
 
 
 public class LoanOffersRequestAddress   {

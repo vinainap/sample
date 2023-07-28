@@ -38,6 +38,7 @@ components:
         - firstName
         - lastName
         - address
+        - dateOfBirth
         - mobileNumber
         - idType
         - idNum
@@ -90,6 +91,12 @@ components:
             postCode:
               type: string
               example: SM11LZ
+        dateOfBirth:
+          type: string
+          format: date
+        emailId:
+          type: string
+          format: email
         mobileNumber:
           type: integer
           format: int32
