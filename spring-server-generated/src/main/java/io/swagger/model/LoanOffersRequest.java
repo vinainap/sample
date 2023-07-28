@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * LoanOffersRequest
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T13:35:21.080469257Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-07-28T13:39:42.785073839Z[GMT]")
 
 
 public class LoanOffersRequest   {
@@ -25,13 +25,13 @@ public class LoanOffersRequest   {
   @JsonProperty("merchantRef")
   private String merchantRef = null;
 
-  @JsonProperty("transactionCurrency")
-  private Double transactionCurrency = null;
+  @JsonProperty("transactionAmount")
+  private Double transactionAmount = null;
 
   /**
-   * Gets or Sets currency
+   * Gets or Sets transactioncurrency
    */
-  public enum CurrencyEnum {
+  public enum TransactioncurrencyEnum {
     GBP("GBP"),
     
     EUR("EUR"),
@@ -40,7 +40,7 @@ public class LoanOffersRequest   {
 
     private String value;
 
-    CurrencyEnum(String value) {
+    TransactioncurrencyEnum(String value) {
       this.value = value;
     }
 
@@ -51,8 +51,8 @@ public class LoanOffersRequest   {
     }
 
     @JsonCreator
-    public static CurrencyEnum fromValue(String text) {
-      for (CurrencyEnum b : CurrencyEnum.values()) {
+    public static TransactioncurrencyEnum fromValue(String text) {
+      for (TransactioncurrencyEnum b : TransactioncurrencyEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -60,8 +60,8 @@ public class LoanOffersRequest   {
       return null;
     }
   }
-  @JsonProperty("currency")
-  private CurrencyEnum currency = null;
+  @JsonProperty("transactioncurrency")
+  private TransactioncurrencyEnum transactioncurrency = null;
 
   @JsonProperty("firstName")
   private String firstName = null;
@@ -162,43 +162,43 @@ public class LoanOffersRequest   {
     this.merchantRef = merchantRef;
   }
 
-  public LoanOffersRequest transactionCurrency(Double transactionCurrency) {
-    this.transactionCurrency = transactionCurrency;
+  public LoanOffersRequest transactionAmount(Double transactionAmount) {
+    this.transactionAmount = transactionAmount;
     return this;
   }
 
   /**
-   * Get transactionCurrency
-   * @return transactionCurrency
+   * Get transactionAmount
+   * @return transactionAmount
    **/
   @Schema(required = true, description = "")
       @NotNull
 
-    public Double getTransactionCurrency() {
-    return transactionCurrency;
+    public Double getTransactionAmount() {
+    return transactionAmount;
   }
 
-  public void setTransactionCurrency(Double transactionCurrency) {
-    this.transactionCurrency = transactionCurrency;
+  public void setTransactionAmount(Double transactionAmount) {
+    this.transactionAmount = transactionAmount;
   }
 
-  public LoanOffersRequest currency(CurrencyEnum currency) {
-    this.currency = currency;
+  public LoanOffersRequest transactioncurrency(TransactioncurrencyEnum transactioncurrency) {
+    this.transactioncurrency = transactioncurrency;
     return this;
   }
 
   /**
-   * Get currency
-   * @return currency
+   * Get transactioncurrency
+   * @return transactioncurrency
    **/
   @Schema(description = "")
   
-    public CurrencyEnum getCurrency() {
-    return currency;
+    public TransactioncurrencyEnum getTransactioncurrency() {
+    return transactioncurrency;
   }
 
-  public void setCurrency(CurrencyEnum currency) {
-    this.currency = currency;
+  public void setTransactioncurrency(TransactioncurrencyEnum transactioncurrency) {
+    this.transactioncurrency = transactioncurrency;
   }
 
   public LoanOffersRequest firstName(String firstName) {
@@ -393,8 +393,8 @@ public class LoanOffersRequest   {
     LoanOffersRequest loanOffersRequest = (LoanOffersRequest) o;
     return Objects.equals(this.merchantId, loanOffersRequest.merchantId) &&
         Objects.equals(this.merchantRef, loanOffersRequest.merchantRef) &&
-        Objects.equals(this.transactionCurrency, loanOffersRequest.transactionCurrency) &&
-        Objects.equals(this.currency, loanOffersRequest.currency) &&
+        Objects.equals(this.transactionAmount, loanOffersRequest.transactionAmount) &&
+        Objects.equals(this.transactioncurrency, loanOffersRequest.transactioncurrency) &&
         Objects.equals(this.firstName, loanOffersRequest.firstName) &&
         Objects.equals(this.middleName, loanOffersRequest.middleName) &&
         Objects.equals(this.lastName, loanOffersRequest.lastName) &&
@@ -408,7 +408,7 @@ public class LoanOffersRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, merchantRef, transactionCurrency, currency, firstName, middleName, lastName, address, dateOfBirth, emailId, mobileNumber, idType, idNum);
+    return Objects.hash(merchantId, merchantRef, transactionAmount, transactioncurrency, firstName, middleName, lastName, address, dateOfBirth, emailId, mobileNumber, idType, idNum);
   }
 
   @Override
@@ -418,8 +418,8 @@ public class LoanOffersRequest   {
     
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    merchantRef: ").append(toIndentedString(merchantRef)).append("\n");
-    sb.append("    transactionCurrency: ").append(toIndentedString(transactionCurrency)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    transactionAmount: ").append(toIndentedString(transactionAmount)).append("\n");
+    sb.append("    transactioncurrency: ").append(toIndentedString(transactioncurrency)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");

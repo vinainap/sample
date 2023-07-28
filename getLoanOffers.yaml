@@ -50,10 +50,10 @@ components:
         merchantRef:
           type: string
           example: ZYXGHJ74590TYU
-        transactionCurrency:
+        transactionAmount:
           type: number
           format: double
-        currency:
+        transactioncurrency:
           type: string
           enum:
             - GBP
